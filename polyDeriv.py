@@ -26,7 +26,11 @@ def findDeriv(base, exp, be): #returns a processed array[nBase, nPoly, b or e (r
 # Reversed for mathematicaly correct order. Higher to lower exponent. 1+
 # for ending at 0.
 for num in reversed(range(1, polyInput + 1)):
-    baseInput = int(
+    if (num == 1):
+        baseInput = int(
+	input('Enter the x value of x*n (Type 0 if not present in function): '))
+    else:
+        baseInput = int(
         input('Enter the x value of x*n^%d (Type 0 if not present in function): ' % num))
     calcBase = findDeriv(baseInput, num, "b")  # num = exponent.
     calcExp = findDeriv(baseInput, num, "e")
@@ -35,9 +39,12 @@ for num in reversed(range(1, polyInput + 1)):
         polyDerivated = polyDerivated
     else:
         if (calcExp == 0):
-            polyDerivated = polyDerivated + "+ " + str(calcBase)
+            polyDerivated = polyDerivated + str(calcBase)
+        elif (calcExp == 1):
+            strPoly = str(calcBase) + "x + "
+            polyDerivated = polyDerivated + strPoly
         else:
-            strPoly = str(calcBase) + "x^" + str(calcExp) + " "
+            strPoly = str(calcBase) + "x^" + str(calcExp) + " + "
             polyDerivated = polyDerivated + strPoly
 
 print(str(polyDerivated))
