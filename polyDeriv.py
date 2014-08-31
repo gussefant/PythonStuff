@@ -7,7 +7,7 @@
 # work, for now.
 
 polyInput = int(
-    raw_input('Enter the highest exponation in the polynomal function: '))
+    input('Enter the highest exponation in the polynomal function: '))
 polyDerivated = ""
 
 
@@ -27,7 +27,7 @@ def findDeriv(base, exp, be): #returns a processed array[nBase, nPoly, b or e (r
 # for ending at 0.
 for num in reversed(range(1, polyInput + 1)):
     baseInput = int(
-        raw_input('Enter the x value of x*n^%d (Type 0 if not present in function): ' % num))
+        input('Enter the x value of x*n^%d (Type 0 if not present in function): ' % num))
     calcBase = findDeriv(baseInput, num, "b")  # num = exponent.
     calcExp = findDeriv(baseInput, num, "e")
 
@@ -40,4 +40,4 @@ for num in reversed(range(1, polyInput + 1)):
             strPoly = str(calcBase) + "x^" + str(calcExp) + " "
             polyDerivated = polyDerivated + strPoly
 
-print str(polyDerivated)
+print(str(polyDerivated))
